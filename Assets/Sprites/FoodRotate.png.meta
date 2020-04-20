@@ -1,0 +1,320 @@
+fileFormatVersion: 2
+guid: b99cdcec79c47acf2939c176e5dd8289
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8090302890274388104
+    second: FoodRotate_0
+  - first:
+      213: -4049716270619797964
+    second: FoodRotate_0
+  - first:
+      213: -6410217318485294227
+    second: FoodRotate_1
+  - first:
+      213: 5437845690715961701
+    second: FoodRotate_2
+  - first:
+      213: -1959070446906661992
+    second: FoodRotate_3
+  - first:
+      213: 3280369100646013686
+    second: FoodRotate_4
+  - first:
+      213: -329833678828625437
+    second: FoodRotate_5
+  - first:
+      213: -6289722295051619379
+    second: FoodRotate_6
+  - first:
+      213: 6167049411908154674
+    second: FoodRotate_7
+  - first:
+      213: 5493979393795740575
+    second: FoodRotate_1
+  - first:
+      213: 2327193293751398066
+    second: FoodRotate_2
+  - first:
+      213: -8107898982770066741
+    second: FoodRotate_3
+  - first:
+      213: -1993788480240800992
+    second: FoodRotate_4
+  - first:
+      213: 3671396877361372885
+    second: FoodRotate_5
+  - first:
+      213: -1243136669438314599
+    second: FoodRotate_6
+  - first:
+      213: -6690987796855772078
+    second: FoodRotate_7
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FoodRotate_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 293
+        width: 220
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 436569812848cc7c0800000000000000
+      internalID: -4049716270619797964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodRotate_1
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 303
+        width: 220
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f93d28a76298e3c40800000000000000
+      internalID: 5493979393795740575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodRotate_2
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 324
+        width: 217
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be29bd78f9db4020800000000000000
+      internalID: 2327193293751398066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodRotate_3
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 305
+        width: 220
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bca3d3925d4fa7f80800000000000000
+      internalID: -8107898982770066741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodRotate_4
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 40
+        width: 220
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b2bf5d0f3a454e0800000000000000
+      internalID: -1993788480240800992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodRotate_5
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 57
+        width: 221
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5de5a90120c63f230800000000000000
+      internalID: 3671396877361372885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodRotate_6
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 74
+        width: 217
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 997fdda19cd7fbee0800000000000000
+      internalID: -1243136669438314599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodRotate_7
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 54
+        width: 220
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c20f39c06d423a0800000000000000
+      internalID: -6690987796855772078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
