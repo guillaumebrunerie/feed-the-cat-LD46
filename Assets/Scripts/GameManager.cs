@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public Text scoreUI;
 
     private bool playing = false;
-    public float timeToNoFood = 20;
+    public float timeToNoFood;
     
     public GameObject easyButton;
     public GameObject hardButton;
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         
     public void StartGame(bool hard)
     {
-        timeToNoFood = hard ? 10 : 40;
+        timeToNoFood = hard ? 20 : 40;
         if (thisCat != null)
             Destroy(thisCat.gameObject);
         for (int i = 0; i < objects.Count; i++)
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
                 timeWaited -= timeBetweenObjects;
                 SpawnObject();
             }
-            score += Time.deltaTime * (cat.IsSleeping() ? 3 : 1);
+            score += Time.deltaTime * (thisCat.IsSleeping() ? 3 : 1);
             scoreUI.text = "Score: " + ((int) score);
 
             if (Input.GetMouseButtonDown(0))
