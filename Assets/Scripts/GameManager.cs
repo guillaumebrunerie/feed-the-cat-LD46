@@ -10,16 +10,14 @@ public class GameManager : MonoBehaviour
     public GameObject food;
     public GameObject explosion;
     public static GameManager instance;
-    public List<Food> objects;
-    public Image foodBar;
+    public List<GameObject> objects;
     public float score;
     public float highScore;
-    public Cat cat;
-    public Cat thisCat;
+    public GameObject catPrefab;
+    private GameObject cat;
     public Text scoreUI;
 
     private bool playing = false;
-    public float timeToNoFood;
     
     public GameObject easyButton;
     public GameObject hardButton;
@@ -37,20 +35,20 @@ public class GameManager : MonoBehaviour
         
     public void StartGame(bool hard)
     {
-        timeToNoFood = hard ? 20 : 40;
-        if (thisCat != null)
-            Destroy(thisCat.gameObject);
+        if (cat != null)
+            Destroy(cat);
         for (int i = 0; i < objects.Count; i++)
         {
-            Destroy(objects[i].gameObject);
+            Destroy(objects[i]);
         }
 
         score = 0;
-        objects = new List<Food>();
+        objects = new List<GameObject>();
         timeWaited = timeBetweenObjects;
         easyButton.SetActive(false);
         hardButton.SetActive(false);
-        thisCat = Instantiate(cat);
+        cat = Instantiate(catPrefab);
+        cat.GetComponent<Cat>().SetTimeToNoFood(hard ? 20 : 40);
         playing = true;
     }
 
@@ -65,7 +63,7 @@ public class GameManager : MonoBehaviour
                 timeWaited -= timeBetweenObjects;
                 SpawnObject();
             }
-            score += Time.deltaTime * (thisCat.IsSleeping() ? 3 : 1);
+            score += Time.deltaTime * (cat.GetComponent<Cat>().IsSleeping() ? 3 : 1);
             scoreUI.text = "Score: " + ((int) score);
 
             if (Input.GetMouseButtonDown(0))
@@ -77,12 +75,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddObjectToList(Food obj)
+    public void AddObjectToList(GameObject obj)
     {
         objects.Add(obj);
     }
 
-    public void RemoveObjectFromList(Food obj)
+    public void RemoveObjectFromList(GameObject obj)
     {
         objects.Remove(obj);
     }

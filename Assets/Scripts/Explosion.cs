@@ -42,10 +42,10 @@ public class Explosion : MonoBehaviour
 
     void Explode()
     {
-        List<Food> objects = GameManager.instance.objects;
+        List<GameObject> objects = GameManager.instance.objects;
         for (int i = 0; i < objects.Count; i++)
         {
-            objects[i].GetForce(transform.position - objects[i].transform.position, strength);
+            objects[i].GetComponent<Food>().GetForce(transform.position - objects[i].transform.position, strength);
         }
     }
 }

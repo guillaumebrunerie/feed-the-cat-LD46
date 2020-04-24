@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fd3dba79b207a7ea8a89ae0a5bb23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wokeupSprite: {fileID: 21300000, guid: 9ae75b7fc89ecdf459974719d14abda7, type: 3}
   foodBar: {fileID: 0}
 --- !u!95 &5120540333785028246
 Animator:

@@ -21,9 +21,8 @@ public class Cat : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb2d;
 
-    public Sprite wokeupSprite;
-
     public GameObject foodBar;
+    public Image foodBarAmount;
 
     enum State
     {
@@ -44,18 +43,23 @@ public class Cat : MonoBehaviour
 
         food = 1f;
         state = State.Sleeping;
-        timeToNoFood = GameManager.instance.timeToNoFood;
 
         foodBar = GameObject.Find("FoodBar");
+        foodBarAmount = GameObject.Find("FoodBarAmount").GetComponent<Image>();
     }
 
+    public void SetTimeToNoFood(float x)
+    {
+        timeToNoFood = x;
+    }
+    
     // Update is called once per frame
     void Update()
     {
         if (state != State.Eating)
             food -= Time.deltaTime/timeToNoFood;
 
-        GameManager.instance.foodBar.fillAmount = food * 0.85f;
+        foodBarAmount.fillAmount = food * 0.85f;
         foodBar.transform.position = new Vector3 (transform.position.x, transform.position.y + 1.75f, 0);
 
         State newstate;
@@ -74,7 +78,9 @@ public class Cat : MonoBehaviour
             else
             {
                 pieceOfFood = FindFood();
-                if (pieceOfFood != null)
+                if (pieceOfFood == null)
+                    newstate = State.Waiting;
+                else                    
                 {
                     if (ReachedFood())
                     {
@@ -86,12 +92,8 @@ public class Cat : MonoBehaviour
                         newstate = State.Walking;
                         rb2d.MovePosition(Vector2.MoveTowards(rb2d.position, pieceOfFood.Position() + (facingLeft ? deltal : deltar), catSpeed * Time.deltaTime));
                         facingLeft = (rb2d.position.x > pieceOfFood.Position().x);
-                        transform.localScale = new Vector3(facingLeft ? .5f : -.5f, .5f, 1);
+                        transform.localScale = new Vector3((facingLeft ? .5f : -.5f), .5f, 1);
                     }
-                }
-                else
-                {
-                    newstate = State.Waiting;
                 }
             }
         }
@@ -115,11 +117,6 @@ public class Cat : MonoBehaviour
         return ((rb2d.position - pieceOfFood.Position() - (facingLeft ? deltal : deltar)).sqrMagnitude < 0.1);
     }
 
-    public float GetFood()
-    {
-        return food;
-    }
-
     public bool IsSleeping()
     {
         return (state == State.Sleeping);
@@ -127,50 +124,43 @@ public class Cat : MonoBehaviour
     
     public Food FindFood()
     {
-        List<Food> objs = GameManager.instance.objects;
+        List<GameObject> objs = GameManager.instance.objects;
         float catX = rb2d.position.x;
 
         float bestDistance = 1000;
-        Food bestFood = null;
+        GameObject bestFood = null;
         float secondBestDistance = 1000;
-        Food secondBestFood = null;
+        GameObject secondBestFood = null;
         
         for (int i = 0; i < objs.Count; i++)
         {
-            if (objs[i].IsReady())
+            if (objs[i].GetComponent<Food>().IsReady())
             {
-                float dleft = catX - objs[i].GetX(); // - deltal.x;
-                float dright = objs[i].GetX() - catX; // - deltal.x;
-                if (facingLeft)
+                float d = catX - objs[i].transform.position.x;
+                if ((facingLeft && d > 0) || (!facingLeft && d < 0))
                 {
-                    if (dleft > 0 && dleft < bestDistance)
+                    if (Mathf.Abs(d) < bestDistance)
                     {
-                        bestDistance = dleft;
+                        bestDistance = Mathf.Abs(d);
                         bestFood = objs[i];
-                    }
-                    if (dright > 0 && dright < secondBestDistance)
-                    {
-                        secondBestDistance = dright;
-                        secondBestFood = objs[i];
                     }
                 }
                 else
                 {
-                    if (dright > 0 && dright < bestDistance)
+                    if (Mathf.Abs(d) < secondBestDistance)
                     {
-                        bestDistance = dright;
-                        bestFood = objs[i];
-                    }
-                    if (dleft > 0 && dleft < secondBestDistance)
-                    {
-                        secondBestDistance = dleft;
+                        secondBestDistance = Mathf.Abs(d);
                         secondBestFood = objs[i];
                     }
                 }
             }
         }
-        if (bestFood == null)
-            bestFood = secondBestFood;
-        return bestFood;
+        if (bestFood != null)
+            return (bestFood.GetComponent<Food>());
+        else
+            if (secondBestFood != null)
+                return (secondBestFood.GetComponent<Food>());
+            else
+                return null;
     }
 }

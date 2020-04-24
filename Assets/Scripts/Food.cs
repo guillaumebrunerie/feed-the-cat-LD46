@@ -15,7 +15,7 @@ public class Food : MonoBehaviour
     private float contents;
 
     static int Mod(int a, int b) {
-        return (Mathf.Abs(a * b) + a) % b;
+        return (((a % b) + b) % b);
     }
 
     void Awake()
@@ -38,14 +38,12 @@ public class Food : MonoBehaviour
 
         rb2d.AddTorque(Random.Range(-100f, 100f));
         
-        GameManager.instance.AddObjectToList(this);
+        GameManager.instance.AddObjectToList(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        veloc = rb2d.velocity.sqrMagnitude;
-        rot = rb2d.rotation;
         if (rb2d.position.y < -10)
             Destroy(gameObject);
 
@@ -57,7 +55,6 @@ public class Food : MonoBehaviour
             sr.sprite = consumedSprites[1];
         else
             sr.sprite = consumedSprites[2];
-        
     }
 
     public void GetForce(Vector2 to, float strength)
@@ -69,10 +66,9 @@ public class Food : MonoBehaviour
 
     public bool IsReady()
     {
-        // Debug.Log("Velocity: " + rb2d.velocity.sqrMagnitude);
-        // Debug.Log("Very small: " + (rb2d.velocity.sqrMagnitude < Mathf.Epsilon));
-        // Debug.Log("Rotation: " + rb2d.rotation);
-        return (rb2d.velocity.sqrMagnitude < 1 && !Empty() && (Mathf.Abs(rb2d.rotation % 360) < 5 || Mathf.Abs(rb2d.rotation % 360) > 355));
+        return (rb2d.velocity.sqrMagnitude < 1
+                && !IsEmpty()
+                && (Mathf.Abs(rb2d.rotation % 360) < 5 || Mathf.Abs(rb2d.rotation % 360) > 355));
     }
     
     public float Consume(float max)
@@ -89,23 +85,18 @@ public class Food : MonoBehaviour
         }
     }
 
-    public bool Empty()
+    public bool IsEmpty()
     {
         return (contents <= 0.001);
     }
     
     void OnDestroy()
     {
-        GameManager.instance.RemoveObjectFromList(this);
+        GameManager.instance.RemoveObjectFromList(gameObject);
     }
 
     public Vector2 Position()
     {
         return rb2d.position;
-    }
-
-    public float GetX()
-    {
-        return rb2d.position.x;
     }
 }
