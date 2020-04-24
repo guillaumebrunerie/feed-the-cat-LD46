@@ -645,10 +645,9 @@ MonoBehaviour:
   objects: []
   score: 0
   highScore: 0
-  catPrefab: {fileID: 0}
-  cat: {fileID: 0}
+  catPrefab: {fileID: 5420112246189098395, guid: f3c3bb8129d245388920b20608b3f65f,
+    type: 3}
   scoreUI: {fileID: 1062131753}
-  timeToNoFood: 0
   easyButton: {fileID: 1757082498}
   hardButton: {fileID: 874438362}
 --- !u!1 &519420028
